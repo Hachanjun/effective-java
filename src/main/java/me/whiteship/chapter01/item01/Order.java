@@ -1,5 +1,9 @@
 package me.whiteship.chapter01.item01;
 
+/**
+ * 장점 1. 이름을 가질 수 있다.
+ */
+
 import java.util.*;
 
 public class Order {
