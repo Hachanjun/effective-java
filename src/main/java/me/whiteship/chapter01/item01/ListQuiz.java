@@ -15,6 +15,7 @@ public class ListQuiz {
 
         System.out.println(numbers);
 
+        // 자바8 부터 가능한 default 메소드
         Comparator<Integer> desc = (o1, o2) -> o2 - o1;
 
         numbers.sort(desc.reversed());
