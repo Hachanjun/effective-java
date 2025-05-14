@@ -13,8 +13,16 @@ public abstract class Pizza {
     public enum Topping { HAM, MUSHROOM, ONION, PEPPER, SAUSAGE }
     final Set<Topping> toppings;
 
+    // 추상 클래스의 추상 빌더를 만들고 타입에는 빌더 자신의 하위 클래스 타입을 받도록 재귀적인 타입 제한을 사용(빌더 자신 타입이 자기 자신의 제네릭 타입)
     abstract static class Builder<T extends Builder<T>> {
         EnumSet<Topping> toppings = EnumSet.noneOf(Topping.class);
+        
+        // 리턴 타입을 Builder<T> 자신으로 지정하게 되면 하위 타입의 빌더 클래스들이 불편해진다. -> 하위 클래스에서 호출 할 때 Pizza에 있는 build()만 사용 가능
+        //public Builder<T> addTopping(Topping topping) {
+        //    toppings.add(Objects.requireNonNull(topping));
+        //    return this();
+        //}
+        // 하위 클래스들의 빌더들은 자기 자신을 리턴해야 한다. 그래야 하위 클래스의 빌더만의 특수한 기능을 사용할 수 있다.
         public T addTopping(Topping topping) {
             toppings.add(Objects.requireNonNull(topping));
             return self();

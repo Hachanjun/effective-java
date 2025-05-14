@@ -9,6 +9,8 @@ public class NutritionFacts {
     private final int sodium;       // (mg/1회 제공량)      선택
     private final int carbohydrate; // (g/1회 제공량)       선택
 
+    // 필수적인 값들은 생성자로 받는게 좋다. 객체를 만들 때 생성자를 통해서 받게 강제할 수 있다.
+    // 아래 방식들은 점층적 생성자 패턴 또는 생성자 체이닝
     public NutritionFacts(int servingSize, int servings) {
         this(servingSize, servings, 0);
     }
@@ -38,6 +40,7 @@ public class NutritionFacts {
         this.carbohydrate = carbohydrate;
     }
 
+    // 문제점은 어떤 파라미터를 전달해야할 지 파악하는 것이 어렵다.
     public static void main(String[] args) {
         NutritionFacts cocaCola =
                 new NutritionFacts(10, 10);

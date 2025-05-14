@@ -1,3 +1,5 @@
+'use strict';
+
 const keesun = {
     'name': 'Keesun',
     'age': 40

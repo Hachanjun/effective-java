@@ -33,8 +33,8 @@ public class HelloServiceFactory {
 
     public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
     	// 자바가 기본으로 제공해주는 ServiceLoader (임의의 서비스를 로딩하겠다. / 여러 개의 서비스가 있을 수 있으므로 iterator)
-    	// ServiceLoader : 서비스 프로파이더 프레임워크의 자바 기본 구현제 
-    	// 장점5. 정적팩토리 메소드가 있으면 인터페이스만 있고 인터페이스 구현체는 존재하지 않아도 된다.
+    	// ServiceLoader : 서비스 프로바이더 프레임워크의 자바 기본 구현제 
+    	// 장점 5. 정적팩토리 메소드가 있으면 인터페이스만 있고 인터페이스 구현체는 존재하지 않아도 된다.
     	// 이 코드는 ChineseHelloService()에 의존적이지 않다.
     	// 어떤 임의의 구현체가 올 지 모르는 코드이다.
     	// 유연함이 있다. 예로 들어 JDBC Driver -> 하지만 JDBC Driver는 ServiceLoader가 등장하기 전에 나왔기 때문에 사용하지는 않고 있다.
