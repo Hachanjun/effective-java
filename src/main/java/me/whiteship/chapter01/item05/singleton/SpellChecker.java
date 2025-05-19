@@ -5,6 +5,7 @@ import me.whiteship.chapter01.item05.Dictionary;
 
 import java.util.List;
 
+// 유연성 및 재사용성이 떨어진다.
 public class SpellChecker {
 
     private final Dictionary dictionary = new DefaultDictionary();

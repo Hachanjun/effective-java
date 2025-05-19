@@ -5,7 +5,8 @@ public class Concert {
     private boolean lightsOn;
 
     private boolean mainStateOpen;
-
+    
+    // 인터페이스 기반
     private IElvis elvis;
 
     public Concert(IElvis elvis) {

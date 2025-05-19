@@ -3,6 +3,7 @@ package me.whiteship.chapter01.item03.serialization;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+// Serializable 선언해줘야 직렬화, 역직렬화가 된다.
 public class Book implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -15,6 +16,7 @@ public class Book implements Serializable {
 
     private String name;
 
+    // 직렬화 하고 싶지 않은 데이터는 transient 작성한다.
     private transient int numberOfSold;
 
     public Book(String isbn, String title, String author, LocalDate published) {
