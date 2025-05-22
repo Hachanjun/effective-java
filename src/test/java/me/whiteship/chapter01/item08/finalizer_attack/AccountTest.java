@@ -15,6 +15,7 @@ class AccountTest {
     @Test
     void 푸틴_계정() throws InterruptedException {
         Account account = null;
+        // 만들 다 만 객체는 만들 수 있다.
         try {
             account = new BrokenAccount("푸틴");
         } catch (Exception exception) {
@@ -24,5 +25,4 @@ class AccountTest {
         System.gc();
         Thread.sleep(3000L);
     }
-
 }

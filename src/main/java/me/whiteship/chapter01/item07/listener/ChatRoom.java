@@ -7,6 +7,7 @@ import java.util.Objects;
 
 public class ChatRoom {
 
+	// WeakReference을 이렇게 사용하면 안 된다. -> 삭제되지 않는다.
     private List<WeakReference<User>> users;
 
     public ChatRoom() {

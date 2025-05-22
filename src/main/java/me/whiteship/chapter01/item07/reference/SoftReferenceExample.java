@@ -6,6 +6,7 @@ public class SoftReferenceExample {
 
     public static void main(String[] args) throws InterruptedException {
         Object strong = new Object();
+        // Soft Reference : String Reference와 Soft Reference가 Object를 바라보는 것
         SoftReference<Object> soft = new SoftReference<>(strong);
         strong = null;
 

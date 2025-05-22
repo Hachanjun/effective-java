@@ -7,7 +7,8 @@ public class OuterClass {
     private void hi() {
 
     }
-
+    // 정적(static)이 아닌 중첩클래스를 썼을 때 그걸 감싸고 있는 OuterClass에 대한 레퍼런스가 생기기 때문에 Runnable만들 때 static으로 만들어라
+    // OuterClass의 굉장히 종속적이다.
     class InnerClass {
 
         public void hello() {

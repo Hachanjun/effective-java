@@ -8,8 +8,9 @@ public class PhantomReferenceExample {
 
     public static void main(String[] args) throws InterruptedException {
         BigObject strong = new BigObject();
+        // phantom Reference는 Queue가 있어야 한다.
         ReferenceQueue<BigObject> rq = new ReferenceQueue<>();
-
+        // ReferenceQueue를 넘겨줘야 한다.
         BigObjectReference<BigObject> phantom = new BigObjectReference<>(strong, rq);
         strong = null;
 
@@ -23,6 +24,7 @@ public class PhantomReferenceExample {
         Reference<? extends BigObject> reference = rq.poll();
         BigObjectReference bigObjectCleaner = (BigObjectReference) reference;
         bigObjectCleaner.cleanUp();
+        // clear해줘야 reference가 사라진다.
         reference.clear();
     }
 }

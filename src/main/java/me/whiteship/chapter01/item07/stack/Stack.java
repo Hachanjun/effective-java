@@ -17,6 +17,7 @@ public class Stack {
         elements[size++] = e;
     }
 
+//	  여기가 문제, 꺼내서 계속 주기만 하면 계속해서 엘리먼트가 쌓이기만 한다. 오브젝트 배열에서 사라지지 않는다. -> 메모리 누수 발생
 //    public Object pop() {
 //        if (size == 0)
 //            throw new EmptyStackException();

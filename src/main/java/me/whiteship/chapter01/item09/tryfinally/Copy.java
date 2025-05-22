@@ -16,10 +16,25 @@ public class Copy {
                 while ((n = in.read(buf)) >= 0)
                     out.write(buf, 0, n);
             } finally {
-                out.close();
+                out.close(); // 여기서 에러가 발생해도 in은 close() 하려고 시도한다.
             }
         } finally {
             in.close();
+        }
+    }
+    // 아래는 아주 위험한 소스이다. 자원 리소스가 leak(구멍)이 생길 수 있다.
+    // 
+    static void copy2(String src, String dst) throws IOException {
+        InputStream in = new FileInputStream(src);
+        OutputStream out = new FileOutputStream(dst);
+        try {
+        	byte[] buf = new byte[BUFFER_SIZE];
+        	int n;
+        	while ((n = in.read(buf)) >= 0)
+        		out.write(buf, 0, n);
+        } finally {
+            in.close(); // 여기서 에러가 발생 시 out은 close() 안 된다.
+            out.close();
         }
     }
 

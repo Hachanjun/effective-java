@@ -14,6 +14,8 @@ public class AutoClosableIsGood implements Closeable {
         }
     }
 
+    // AutoClosable을 구현하면 close()를 구현할 수 있다.
+    // close()를 구현하면 AutoClosable 인터페이스 역할은 끝
     @Override
     public void close() {
         try {
