@@ -8,6 +8,7 @@ import java.util.concurrent.ThreadLocalRandom;
 import static java.util.Comparator.comparingInt;
 
 // PhoneNumber를 비교할 수 있게 만든다. (91-92쪽)
+// Comparable<T> 제네릭 인터페이스
 public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
     private final short areaCode, prefix, lineNum;
 
@@ -80,11 +81,16 @@ public final class PhoneNumber implements Cloneable, Comparable<PhoneNumber> {
     }
 
     // 코드 14-3 비교자 생성 메서드를 활용한 비교자 (92쪽)
+    // Comparator라는 인터페이스가 제공하는 static 메소드를 활용해서 Comparator 인스턴스를 만들 수 있다.
+    // 코드 읽기가 편한다. 성능이 느려진다.
     private static final Comparator<PhoneNumber> COMPARATOR =
+    		// Comparator 인터페이스에 선언되어 있는 comparingInt
+    		// static 메소드로 선언한 이후에는 default 메소드에 접근할 수 있다.
             comparingInt((PhoneNumber pn) -> pn.areaCode)
                     .thenComparingInt(pn -> pn.getPrefix())
                     .thenComparingInt(pn -> pn.lineNum);
-//
+
+//    일반적인 구현 방법
 //    @Override
 //    public int compareTo(PhoneNumber pn) {
 //        return COMPARATOR.compare(this, pn);

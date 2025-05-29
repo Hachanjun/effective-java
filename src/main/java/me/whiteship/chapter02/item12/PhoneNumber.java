@@ -33,6 +33,7 @@ public final class PhoneNumber {
                 areaCode, prefix, lineNum);
     }
 
+    // 정적(static) 팩토리
     public static PhoneNumber of(String phoneNumberString) {
         String[] split = phoneNumberString.split("-");
         PhoneNumber phoneNumber = new PhoneNumber(

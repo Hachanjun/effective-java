@@ -5,6 +5,8 @@ import me.whiteship.chapter02.item10.Point;
 
 // Point에 값 컴포넌트(color)를 추가 (56쪽)
 public class ColorPoint extends Point {
+	// 필드를 추가했을 때는 안전하고 어떤 그 이런 추이성이나 대칭성을 위반하지 않는 equals를 추가하는 방법은 없다.
+	// equals 규약을 만족할 수 있는 방법이 존재하지 않는다. 구체 클래스를 확장해서 새로운 값을 추가하면 equals 규약을 만족시킬 방법은 존재하지 않는다.
     private final Color color;
 
     public ColorPoint(int x, int y, Color color) {
@@ -20,6 +22,8 @@ public class ColorPoint extends Point {
 //    }
 
 //    // 코드 10-3 잘못된 코드 - 추이성 위배! (57쪽)
+    // 그럼 Point는 Point라는 이 상위 클래스에서 이게 하위 타입은 하위 타입끼리 같은 타입인지 확인해야 하는 거 아닐까?
+    // 리스코프 치안원칙 위배! -> 상위 클래스 타입으로 상위 클래스 타입의 인스턴스를 주더라도 그대로 동일하게 동작해야 한다.
     @Override public boolean equals(Object o) {
         if (!(o instanceof Point))
             return false;

@@ -5,7 +5,7 @@ public class MyApp {
     /**
      *
      * @param name
-     * @throws MyException
+     * @throws MyException 이거 자체가 API
      */
     public void hello(String name) throws MyException {
         if (name.equals("푸틴")) {

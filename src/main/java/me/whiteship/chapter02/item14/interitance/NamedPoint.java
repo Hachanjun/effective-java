@@ -22,6 +22,7 @@ public class NamedPoint extends Point {
                 '}';
     }
 
+    // 추천하지 않는 방법 (Composition 추천)
     public static void main(String[] args) {
         NamedPoint p1 = new NamedPoint(1, 0, "keesun");
         NamedPoint p2 = new NamedPoint(1, 0, "whiteship");

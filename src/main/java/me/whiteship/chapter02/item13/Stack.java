@@ -29,6 +29,7 @@ public class Stack implements Cloneable {
     }
 
     // 코드 13-2 가변 상태를 참조하는 클래스용 clone 메서드
+    // 배열 안에 있는 인스턴스만 카피해서 배열만 새로 만들 뿐이지(같은 인스턴스), 실제 배열 안에 들어있던 인스턴스들까지 완전히 새로 카피하는 것이 아니다.(얕은 카피)
     // TODO stack -> elementsS[0, 1]
     // TODO copy -> elementsC[0, 1]
     // TODO elementsS[0] == elementsC[0]

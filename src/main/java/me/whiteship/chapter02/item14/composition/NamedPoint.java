@@ -1,5 +1,6 @@
 package me.whiteship.chapter02.item14.composition;
 
+// Composition
 public class NamedPoint implements Comparable<NamedPoint> {
 
     private final Point point;

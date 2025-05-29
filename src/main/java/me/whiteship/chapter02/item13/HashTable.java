@@ -63,7 +63,11 @@ public class HashTable implements Cloneable {
         HashTable result = null;
         try {
             result = (HashTable)super.clone();
+            // 배열을 직접 만든다.
             result.buckets = new Entry[this.buckets.length];
+            // 재정의 할 수 있는 메소드를 사용하지 않아야 한다.
+            // 하위 클래스에서 오버라이딩하면 동작이 바뀔 수 있기 때문에
+            // result.buckets = createNewBuckets();
 
             for (int i = 0 ; i < this.buckets.length; i++) {
                 if (buckets[i] != null) {
@@ -75,6 +79,10 @@ public class HashTable implements Cloneable {
             throw  new AssertionError();
         }
     }
+    
+//    protected Entry[] createNewBuckets() {
+//    	throw new AssertionError();
+//    }
 
     public static void main(String[] args) {
         HashTable hashTable = new HashTable();

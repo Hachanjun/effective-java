@@ -38,10 +38,14 @@ public final class PhoneNumber {
     // hashCode 없이는 제대로 동작하지 않는다. 다음 셋 중 하나를 활성화하자.
 
     // 코드 11-2 전형적인 hashCode 메서드 (70쪽)
+    // 1. 핵심 필드 하나의 값의 해시 값을 계산해서 result 값을 초기화 한다.
+    // 2. 기본 타입은 Type.hashCode 참조 타입은 해당 필드의 hashCode 배열은 모든 원소를 재귀적으로 위의 로직을 적용하거나, Arrays.hashCode
+    // result = 31 * result + 해당 필드의 hashCode 계산 값
+    // 3. result를 리턴한다.
 //    @Override public int hashCode() {
 //        int result = Short.hashCode(areaCode); // 1
-//        result = 800000 * result + Short.hashCode(prefix); // 2
-//        result = 800000 * result + Short.hashCode(lineNum); // 3
+//        result = 31 * result + Short.hashCode(prefix); // 2
+//        result = 31 * result + Short.hashCode(lineNum); // 3
 //        return result;
 //    }
 
